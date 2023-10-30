@@ -4,9 +4,13 @@ import { App } from 'components/App';
 import { BrowserRouter } from 'react-router-dom';
 
 import './index.css';
+import { Provider } from 'react-redux';
+import { store } from 'store/store';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter basename="/react-shablot-template">
-    <App />
-  </BrowserRouter>
+  <Provider store={store}>
+    <BrowserRouter basename="/tv-shows-list">
+      <App />
+    </BrowserRouter>
+  </Provider>
 );
