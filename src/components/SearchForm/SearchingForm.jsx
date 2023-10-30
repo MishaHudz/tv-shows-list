@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { GetShowsList } from 'store/operations';
+import { SearchShowForm, SearchShowInput } from './SearchingForm.styled';
 
 function SearchingForm() {
   const [inputtedText, setInputtedText] = useState('');
@@ -14,9 +15,14 @@ function SearchingForm() {
   };
 
   return (
-    <form>
-      <input type="text" value={inputtedText} onChange={onInputChange} />
-    </form>
+    <SearchShowForm>
+      <SearchShowInput
+        type="text"
+        value={inputtedText}
+        onChange={onInputChange}
+        placeholder="Search for a TV show"
+      />
+    </SearchShowForm>
   );
 }
 

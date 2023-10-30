@@ -1,19 +1,28 @@
 import SearchingForm from 'components/SearchForm/SearchingForm';
-import { useEffect } from 'react';
+import ShowListItem from 'components/ShowListItem/ShowListItem';
 import { useSelector } from 'react-redux';
+import {
+  MainTitle,
+  SearchShowList,
+  SearchShowSection,
+} from './ShowsPage.styled';
+import Loader from 'components/Loader/Loader';
 
 function ShowsPage() {
   const isLoading = useSelector(state => state.shows.isLoading);
-
-  useEffect(() => {
-    console.log(isLoading);
-  }, [isLoading]);
+  const showsList = useSelector(state => state.shows.showsList);
 
   return (
-    <>
+    <SearchShowSection>
+      <MainTitle>List of TV shows</MainTitle>
       <SearchingForm />
-      {isLoading && <p>Loading</p>}
-    </>
+      {isLoading && <Loader />}
+      <SearchShowList>
+        {showsList?.map(el => (
+          <ShowListItem key={el.show.id} element={el} />
+        ))}
+      </SearchShowList>
+    </SearchShowSection>
   );
 }
 

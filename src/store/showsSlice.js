@@ -3,7 +3,7 @@ import { GetShowsList } from './operations';
 
 const initialState = {
   isLoading: false,
-  showsList: [],
+  showsList: null,
   errorMessage: null,
 };
 
@@ -24,6 +24,7 @@ const showsSlice = createSlice({
         },
         state => {
           state.isLoading = true;
+          state.showsList = [];
         }
       )
       .addMatcher(
