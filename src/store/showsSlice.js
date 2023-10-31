@@ -19,7 +19,7 @@ const showsSlice = createSlice({
     },
     findShow: (state, { payload }) => {
       state.show = state.showsList?.find(
-        el => el.show.id === Number(payload)
+        el => el?.show.id === Number(payload)
       ).show;
     },
   },
