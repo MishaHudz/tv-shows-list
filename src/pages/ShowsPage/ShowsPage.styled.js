@@ -14,14 +14,32 @@ export const MainTitleAccent = styled.span`
 `;
 
 export const SearchShowSection = styled.section`
-  width: 1000px;
+  width: 320px;
+
   margin-left: auto;
   margin-right: auto;
+
+  @media (min-width: 768px) {
+    width: 760px;
+  }
+
+  @media (min-width: 1440px) {
+    width: 1000px;
+  }
 `;
 
 export const SearchShowList = styled.ul`
   display: flex;
-  column-gap: 93px;
-  row-gap: 45px;
+  justify-content: center;
   flex-wrap: wrap;
+  row-gap: 45px;
+
+  @media (min-width: 768px) {
+    justify-content: flex-start;
+    column-gap: 110px;
+  }
+
+  @media (min-width: 1440px) {
+    column-gap: 93px;
+  }
 `;

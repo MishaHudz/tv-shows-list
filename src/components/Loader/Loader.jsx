@@ -1,3 +1,4 @@
+import { useMediaQuery } from 'react-responsive';
 import {
   LoaderItemImageContainer,
   LoaderItemParagraphContainer,
@@ -6,12 +7,26 @@ import {
   LoaderListItem,
 } from './Loader.styed';
 
-const Arr = [0, 0, 0, 0];
-
 function Loader() {
+  const isLargeScreen = useMediaQuery({ minWidth: 1440 });
+  const isTablet = useMediaQuery({ minWidth: 768 });
+
+  const ArrLength = () => {
+    let Arr = [0];
+
+    if (isTablet && !isLargeScreen) {
+      Arr = Arr.concat([0, 0]);
+    }
+
+    if (isLargeScreen) {
+      Arr = Arr.concat([0, 0, 0]);
+    }
+    return Arr;
+  };
+
   return (
     <LoaderList>
-      {Arr.map((_, i) => (
+      {ArrLength().map((_, i) => (
         <LoaderListItem key={i}>
           <LoaderItemImageContainer></LoaderItemImageContainer>
           <LoaderItemTitleContainer></LoaderItemTitleContainer>

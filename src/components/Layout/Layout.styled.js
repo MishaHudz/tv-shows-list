@@ -5,7 +5,7 @@ export const Header = styled.header`
   border-radius: 0px 0px 8px 8px;
   border: 1.5px solid #fff;
   background: #111;
-  padding: 10px 27px;
+  padding: 10px 0px;
 `;
 
 export const Main = styled.main`
@@ -14,10 +14,18 @@ export const Main = styled.main`
 
 export const HeaderContainer = styled.div`
   display: flex;
+  width: 320px;
   align-items: center;
-  width: 1000px;
   margin-left: auto;
   margin-right: auto;
+
+  @media (min-width: 768px) {
+    width: 760px;
+  }
+
+  @media (min-width: 1440px) {
+    width: 1000px;
+  }
 `;
 
 export const HeaderIcon = styled.svg`

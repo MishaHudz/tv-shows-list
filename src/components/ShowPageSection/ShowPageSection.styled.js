@@ -2,11 +2,20 @@ import styled from 'styled-components';
 
 export const ShowSection = styled.section`
   position: relative;
-  width: 1000px;
+  width: 320px;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
+
   padding-top: 40px;
+
+  @media (min-width: 768px) {
+    width: 760px;
+    display: flex;
+  }
+
+  @media (min-width: 1440px) {
+    width: 1000px;
+  }
 `;
 
 export const ShowTitle = styled.h1`
@@ -17,7 +26,11 @@ export const ShowTitle = styled.h1`
 `;
 
 export const ShowSectionRightContainer = styled.div`
-  margin-left: 30px;
+  margin-top: 20px;
+  @media (min-width: 768px) {
+    margin-top: 0px;
+    margin-left: 30px;
+  }
 `;
 
 export const SummaryParagraph = styled.p`

@@ -33,8 +33,8 @@ function ShowPageSection() {
       <img
         src={show?.image?.original ? show?.image?.original : NotImageImg}
         alt={show?.name}
-        width="350px"
-        height="500px"
+        width="320px"
+        height="470.59px"
       />
 
       <ShowSectionRightContainer>

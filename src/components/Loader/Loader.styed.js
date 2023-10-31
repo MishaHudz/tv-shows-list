@@ -2,7 +2,11 @@ import styled from 'styled-components';
 
 export const LoaderList = styled.ul`
   display: flex;
+  justify-content: center;
   column-gap: 93px;
+  @media (min-width: 768px) {
+    justify-content: space-between;
+  }
 `;
 
 export const LoaderListItem = styled.li`
