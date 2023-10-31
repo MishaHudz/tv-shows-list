@@ -1,6 +1,8 @@
 import { useSelector } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router-dom';
 import {
   GoBackBtn,
+  GoBackBtnIcon,
   InformationLink,
   InformationParagraph,
   ShowSection,
@@ -9,7 +11,7 @@ import {
   SummaryParagraph,
 } from './ShowPageSection.styled';
 import { NotImageImg } from 'components/ShowListItem/ShowListItem';
-import { useLocation, useNavigate } from 'react-router-dom';
+import Sprite from '../../assets/images/sprite.svg';
 
 function ShowPageSection() {
   const show = useSelector(state => state.shows.show);
@@ -22,13 +24,19 @@ function ShowPageSection() {
   };
   return (
     <ShowSection>
-      <GoBackBtn onClick={onGoBackButtonClick}> </GoBackBtn>
+      <GoBackBtn onClick={onGoBackButtonClick}>
+        <GoBackBtnIcon width="15px" height="13px">
+          <use xlinkHref={`${Sprite}#arrow`} />
+        </GoBackBtnIcon>
+      </GoBackBtn>
+
       <img
         src={show?.image?.original ? show?.image?.original : NotImageImg}
         alt={show?.name}
         width="350px"
         height="500px"
       />
+
       <ShowSectionRightContainer>
         <ShowTitle>{show?.name}</ShowTitle>
         <InformationParagraph>{`Genres: ${show?.genres.join(
@@ -39,9 +47,16 @@ function ShowPageSection() {
           show?.rating.average ? show?.rating.average : 'Not specified'
         }`}</InformationParagraph>
 
-        <InformationLink href={show?.url} target="blank">
-          Show Page Link
-        </InformationLink>
+        <InformationParagraph>
+          Link:
+          <InformationLink
+            href={show?.url}
+            target="blank"
+            rel="noreferrer noopener"
+          >
+            {` ${show?.name}`}
+          </InformationLink>
+        </InformationParagraph>
 
         <InformationParagraph>{`Status: ${show?.status}`}</InformationParagraph>
 

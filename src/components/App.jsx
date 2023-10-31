@@ -1,7 +1,7 @@
 import Layout from './Layout/Layout';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import ShowsPage from 'pages/ShowsPage/ShowsPage';
-import ShowPage from 'pages/HomePage/ShowPage';
+import ShowPage from 'pages/ShowPage/ShowPage';
 
 export const App = () => {
   return (

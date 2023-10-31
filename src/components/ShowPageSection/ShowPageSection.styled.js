@@ -6,7 +6,7 @@ export const ShowSection = styled.section`
   margin-left: auto;
   margin-right: auto;
   display: flex;
-  padding-top: 30px;
+  padding-top: 40px;
 `;
 
 export const ShowTitle = styled.h1`
@@ -39,6 +39,12 @@ export const InformationLink = styled.a`
   font-style: italic;
   font-size: 15px;
   letter-spacing: -0.5px;
+  transition: color 100ms linear;
+  text-decoration: underline;
+  &:hover,
+  &:focus {
+    color: #eac645;
+  }
 `;
 
 export const GoBackBtn = styled.button`
@@ -46,7 +52,7 @@ export const GoBackBtn = styled.button`
   top: 0;
   left: 0;
   cursor: pointer;
-  padding: 8px 16px;
+  padding: 2px 16px;
   border-radius: 36px;
   background: #eac645;
   transition: background 250ms linear;
@@ -55,4 +61,14 @@ export const GoBackBtn = styled.button`
   &:focus {
     background: #4f2ee8;
   }
+
+  &:hover svg,
+  &:focus svg {
+    fill: #eac645;
+  }
+`;
+
+export const GoBackBtnIcon = styled.svg`
+  fill: #4f2ee8;
+  transition: fill 250ms linear;
 `;

@@ -1,6 +1,10 @@
 import SearchingForm from 'components/SearchForm/SearchingForm';
 import { useSelector } from 'react-redux';
-import { MainTitle, SearchShowSection } from './ShowsPage.styled';
+import {
+  MainTitle,
+  MainTitleAccent,
+  SearchShowSection,
+} from './ShowsPage.styled';
 import Loader from 'components/Loader/Loader';
 import ListOrMessage from 'components/ListOrMessage/ListOrMessage';
 
@@ -9,7 +13,9 @@ function ShowsPage() {
 
   return (
     <SearchShowSection>
-      <MainTitle>List of TV shows</MainTitle>
+      <MainTitle>
+        List of <MainTitleAccent>TV shows</MainTitleAccent>
+      </MainTitle>
       <SearchingForm />
       {isLoading && <Loader />}
       <ListOrMessage />
