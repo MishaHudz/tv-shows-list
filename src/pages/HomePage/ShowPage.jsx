@@ -14,9 +14,11 @@ function ShowPage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log(showsList);
     if (showsList) return;
     dispatch(GetShowsList(location.state?.search.slice(8)));
-  }, [dispatch, location.state?.search, showsList]);
+    console.log(location.state);
+  }, [dispatch, location.state, location.state?.search, showsList]);
 
   useEffect(() => {
     if (show) return;
