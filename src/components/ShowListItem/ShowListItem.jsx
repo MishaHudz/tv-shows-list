@@ -1,3 +1,4 @@
+import { Link, useLocation } from 'react-router-dom';
 import {
   SearchShowListItem,
   ShowListItemImage,
@@ -5,27 +6,34 @@ import {
   ShowListItemTitle,
 } from './ShowListItem.styled';
 
+export const NotImageImg =
+  'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg';
+
 function ShowListItem({ element: { show } }) {
+  const location = useLocation();
   const {
     name,
     rating: { average },
-    image: { medium },
+    image,
+    id,
   } = show;
 
   return (
     <SearchShowListItem>
-      <ShowListItemImage
-        width="180px"
-        height="252.85px"
-        src={medium}
-        alt={name}
-      />
-      <div>
-        <ShowListItemTitle>{name}</ShowListItemTitle>
-        <ShowListItemParagraph>
-          Rating: {average ? average : 'Not specified'}
-        </ShowListItemParagraph>
-      </div>
+      <Link to={`/${id}`} state={location}>
+        <ShowListItemImage
+          width="180px"
+          height="252.85px"
+          src={image?.medium ? image.medium : NotImageImg}
+          alt={name}
+        />
+        <div>
+          <ShowListItemTitle>{name}</ShowListItemTitle>
+          <ShowListItemParagraph>
+            Rating: {average ? average : 'Not specified'}
+          </ShowListItemParagraph>
+        </div>
+      </Link>
     </SearchShowListItem>
   );
 }

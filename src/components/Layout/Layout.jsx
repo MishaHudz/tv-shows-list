@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { Header, HeaderContainer, Main } from './Layout.styled';
 
 function Layout() {
@@ -6,8 +6,8 @@ function Layout() {
     <>
       <Header>
         <HeaderContainer>
-          <NavLink to="/"> Home Page</NavLink>
-          <NavLink to="/page"> Page</NavLink>
+          {/* <NavLink to="/"> Home Page</NavLink>
+          <NavLink to="/page"> Page</NavLink> */}
         </HeaderContainer>
       </Header>
 

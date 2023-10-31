@@ -1,17 +1,32 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { GetShowsList } from 'store/operations';
 import { SearchShowForm, SearchShowInput } from './SearchingForm.styled';
+import { clearShows } from 'store/showsSlice';
+import { useSearchParams } from 'react-router-dom';
 
 function SearchingForm() {
-  const [inputtedText, setInputtedText] = useState('');
+  const [request, setRequest] = useSearchParams();
+  const filmName = useMemo(() => request.get('search'), [request]);
+  const [inputtedText, setInputtedText] = useState(filmName ? filmName : '');
+
   const dispatch = useDispatch();
 
-  const onInputChange = async evt => {
-    setInputtedText(evt.target.value);
+  useEffect(() => {
+    const showsRequest = inputtedText !== '' ? { search: inputtedText } : {};
+    setRequest(showsRequest);
 
-    if (inputtedText.length < 2) return;
-    dispatch(GetShowsList(inputtedText));
+    if (filmName?.length < 2 || !filmName) {
+      dispatch(clearShows());
+      return;
+    }
+
+    dispatch(GetShowsList(filmName));
+  }, [dispatch, filmName, inputtedText, setRequest]);
+
+  const onInputChange = async evt => {
+    if (evt.target.value.includes('  ')) return;
+    setInputtedText(evt.target.value);
   };
 
   return (
