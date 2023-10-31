@@ -13,12 +13,12 @@ function ShowPage() {
   const location = useLocation();
   const dispatch = useDispatch();
 
+  const searchParam = new URLSearchParams(location.search).get('search');
+
   useEffect(() => {
-    console.log(showsList);
     if (showsList) return;
-    dispatch(GetShowsList(location.state?.search.slice(8)));
-    console.log(location.state);
-  }, [dispatch, location.state, location.state?.search, showsList]);
+    dispatch(GetShowsList(searchParam));
+  }, [dispatch, searchParam, showsList]);
 
   useEffect(() => {
     if (show) return;

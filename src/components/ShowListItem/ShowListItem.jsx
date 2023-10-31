@@ -20,7 +20,7 @@ function ShowListItem({ element: { show } }) {
 
   return (
     <SearchShowListItem>
-      <Link to={`/${id}`} state={location}>
+      <Link to={`/${id}${location.search}`} state={location}>
         <ShowListItemImage
           width="180px"
           height="252.85px"
