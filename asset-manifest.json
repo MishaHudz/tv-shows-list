@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/tv-shows-list/static/css/main.14c74b5e.css",
-    "main.js": "/tv-shows-list/static/js/main.94499aff.js",
+    "main.js": "/tv-shows-list/static/js/main.dfddf888.js",
     "index.html": "/tv-shows-list/index.html",
     "main.14c74b5e.css.map": "/tv-shows-list/static/css/main.14c74b5e.css.map",
-    "main.94499aff.js.map": "/tv-shows-list/static/js/main.94499aff.js.map"
+    "main.dfddf888.js.map": "/tv-shows-list/static/js/main.dfddf888.js.map"
   },
   "entrypoints": [
     "static/css/main.14c74b5e.css",
-    "static/js/main.94499aff.js"
+    "static/js/main.dfddf888.js"
   ]
 }
