@@ -18,7 +18,7 @@ function ShowPageSection() {
   const location = useLocation();
 
   const onGoBackButtonClick = () => {
-    navigate(location.state);
+    navigate(`/${location.search}`);
   };
   return (
     <ShowSection>
