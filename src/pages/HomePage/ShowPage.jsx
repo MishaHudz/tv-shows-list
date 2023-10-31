@@ -16,7 +16,7 @@ function ShowPage() {
   useEffect(() => {
     if (showsList) return;
     dispatch(GetShowsList(location.state?.search.slice(8)));
-  }, [dispatch, location.state.search, showsList]);
+  }, [dispatch, location.state?.search, showsList]);
 
   useEffect(() => {
     if (show) return;
